@@ -1,8 +1,8 @@
+import { memo } from 'react'
 import { QuestionCard } from '@/components/QuestionCard'
 import styles from './QuestionCardList.module.css'
 
-export const QuestionCardList = ({ cards }) => {
-
+export const QuestionCardList = memo(({ cards }) => {
   return (
     <ul className={styles.cardList}>
       {cards.map((card) => (
@@ -13,4 +13,4 @@ export const QuestionCardList = ({ cards }) => {
       ))}
     </ul>
   )
-}
+})

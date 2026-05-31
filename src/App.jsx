@@ -7,22 +7,10 @@ export const App = () => {
     <BrowserRouter>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route
-            path="/"
-            element={<HomePage />}
-          />
-          <Route
-            path="/forbidden"
-            element={<div>Forbidden</div>}
-          />
-          <Route
-            path="/add-question"
-            element={<div>Add Question</div>}
-          />
-          <Route
-            path="*"
-            element={<div>Not Found Page</div>}
-          />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/forbidden" element={<div>Forbidden</div>} />
+          <Route path="/add-question" element={<div>Add Question</div>} />
+          <Route path="*" element={<div>Not Found Page</div>} />
         </Route>
       </Routes>
     </BrowserRouter>
