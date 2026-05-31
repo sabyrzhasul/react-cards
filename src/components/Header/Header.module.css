@@ -8,16 +8,16 @@
   background-color: var(--main-bg-color);
   box-shadow: 0 2px 8px rgb(0 0 0 / 0.2);
 
-  p {
+  .logo {
     display: flex;
     justify-content: center;
     align-items: center;
     column-gap: 10px;
-    text-transform: capitalize;
+    text-decoration: none;
     cursor: pointer;
     user-select: none;
 
-    .logo {
+    .logoImage {
       width: 36px;
     }
   }
