@@ -1,23 +1,29 @@
 import { useEffect, useState } from 'react'
 import { QuestionCardList } from '@/components/QuestionCardList'
 import { API_URL } from '@/constants'
+import { Loader } from '@/components/Loader'
+import { useFetch } from '@/hooks/useFetch'
 
 export const HomePage = () => {
   const [questions, setQuestions] = useState([])
 
-  useEffect(() => {
-    const getQuestions = async () => {
-      try {
-        const response = await fetch(`${API_URL}/react`)
-        const data = await response.json()
-        setQuestions(data)
-      } catch (error) {
-        console.error(error)
-      }
-    }
+  const { isLoading, error, fetchData } = useFetch(async (url) => {
+    const response = await fetch(`${API_URL}/${url}`)
+    const questions = await response.json()
 
-    getQuestions()
+    setQuestions(questions)
+    return questions
+  })
+
+  useEffect(() => {
+    fetchData('react')
   }, [])
 
-  return <QuestionCardList cards={questions} />
+  return (
+    <>
+      {isLoading && <Loader />}
+      {error && <div>Error: {error}</div>}
+      <QuestionCardList cards={questions} />
+    </>
+  )
 }
