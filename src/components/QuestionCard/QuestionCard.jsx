@@ -13,7 +13,7 @@ export const QuestionCard = memo(({ card }) => {
   const completedVariant = card.completed ? 'success' : 'primary'
 
   return (
-    <div className={styles.card}>
+    <li className={styles.card}>
       <div className={styles.cardLabels}>
         <Badge variant={levelVariant}>
           Level: {card.level}
@@ -33,6 +33,6 @@ export const QuestionCard = memo(({ card }) => {
       </div>
 
       <Button onClick={goToQuestion}>View</Button>
-    </div>
+    </li>
   )
 })
