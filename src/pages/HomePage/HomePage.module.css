@@ -16,3 +16,20 @@
   text-align: center;
   color: var(--text-color);
 }
+
+.select {
+  flex-grow: 1;
+  height: 40px;
+  padding: 5px;
+  color: var(--text-color);
+  background-color: var(--card-bg-color);
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+
+@media (max-width: 576px) {
+  .controlsContainer {
+    flex-wrap: wrap-reverse;
+  }
+}

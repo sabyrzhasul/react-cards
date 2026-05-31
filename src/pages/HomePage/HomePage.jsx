@@ -9,6 +9,7 @@ import styles from './HomePage.module.css'
 export const HomePage = () => {
   const [questions, setQuestions] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
+  const [sortBy, setSortBy] = useState('')
 
   const { isLoading, error, fetchData } = useFetch(async (url) => {
     const response = await fetch(`${API_URL}/${url}`)
@@ -22,9 +23,13 @@ export const HomePage = () => {
     setSearchTerm(event.target.value)
   }
 
+  const handleSortByChange = (event) => {
+    setSortBy(event.target.value)
+  }
+
   useEffect(() => {
-    fetchData('react')
-  }, [])
+    fetchData(`react?${sortBy}`)
+  }, [sortBy])
 
   const filteredCards = useMemo(() => questions.filter(({ question }) => {
     return question.toLowerCase().includes(searchTerm.trim().toLowerCase())
@@ -37,6 +42,19 @@ export const HomePage = () => {
           value={searchTerm}
           onChange={handleSearchChange}
         />
+
+        <select
+          className={styles.select}
+          value={sortBy}
+          onChange={handleSortByChange}
+        >
+          <option value="">sort by</option>
+          <hr />
+          <option value="_sort=level">level ASC</option>
+          <option value="_sort=-level">level DESC</option>
+          <option value="_sort=completed">completed ASC</option>
+          <option value="_sort=-completed">completed DESC</option>
+        </select>
       </div>
 
       {isLoading && <Loader />}
