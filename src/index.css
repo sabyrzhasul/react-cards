@@ -1,0 +1,33 @@
+:root {
+  --text-color: #000;
+  --main-bg-color: #fff;
+
+  --btn-text-color: #57c4dc;
+  --btn-bg-color: #16444f;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: var(--text-color);
+  background-color: var(--main-bg-color);
+}
+
+a {
+  color: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #fff;
+    --main-bg-color: #23272f;
+
+    --btn-text-color: #fff;
+    --btn-bg-color: #383b3f;
+  }
+}

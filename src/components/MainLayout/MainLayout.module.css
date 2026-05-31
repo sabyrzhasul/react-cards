@@ -1,0 +1,32 @@
+.mainLayout {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+
+  .mainWrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    height: 100%;
+    overflow-y: auto;
+
+    .main {
+      padding-block: 20px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 100%;
+      padding: 15px 10px;
+      text-align: center;
+      font-size: 15px;
+      color: var(--text-color);
+      background-color: transparent;
+    }
+  }
+}

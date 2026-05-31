@@ -1,0 +1,32 @@
+.button {
+  padding: 0.6em 1.2em;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 1em;
+  color: var(--btn-text-color);
+  background-color: var(--btn-bg-color);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition-duration: 0.2s;
+
+  &:hover {
+    scale: 0.95;
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: 2px solid var(--text-color);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &.is-active {
+    color: #000;
+    background-color: #ce7e1d;
+  }
+}
